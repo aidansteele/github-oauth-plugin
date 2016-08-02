@@ -69,8 +69,8 @@ import org.apache.http.client.methods.HttpUriRequest;
 import org.apache.http.conn.params.ConnRoutePNames;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpHost;
-import org.apache.http.impl.client.HttpClient;
-import org.apache.http.impl.client.HttpClientBuilder;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 import org.jfree.util.Log;
 import org.kohsuke.github.GHEmail;
@@ -424,7 +424,7 @@ public class GithubSecurityRealm extends SecurityRealm implements UserDetailsSer
                 + "/login/oauth/access_token?" + "client_id=" + clientID + "&"
                 + "client_secret=" + clientSecret + "&" + "code=" + code);
 
-        HttpClient httpClient = HttpClientBuilder.create().build();
+        CloseableHttpClient httpclient = HttpClients.createDefault();
         HttpHost proxy = getProxy(httpost);
         if (proxy != null) {
             httpclient.getParams().setParameter(ConnRoutePNames.DEFAULT_PROXY, proxy);
