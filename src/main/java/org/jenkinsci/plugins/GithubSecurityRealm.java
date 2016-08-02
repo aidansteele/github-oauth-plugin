@@ -69,7 +69,7 @@ import org.apache.http.client.methods.HttpUriRequest;
 import org.apache.http.conn.params.ConnRoutePNames;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpHost;
-import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.util.EntityUtils;
 import org.jfree.util.Log;
